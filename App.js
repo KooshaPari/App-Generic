@@ -19,10 +19,17 @@ import Transaction from './Components/Transaction.js';
     </View>
   );
 }*/
-
-export default function App() {
-  return <Accswitcher />;
-}
+//export default function App() {return <Splash />;}
+//export default function App() {return <Accswitcher />;}
+//export default function App() {return <Auth />;}
+//export default function App() {return <Home />;}
+//export default function App() {return <Changeinfo />;} // BROKEN
+//export default function App() {return <Loadingscreen />;} // BROKEN
+//export default function App() {return <Login />;}
+//export default function App() {return <Profile />;} // BROKEN
+//export default function App() {return <Settings />;} // BROKEN
+//export default function App() {return <Transaction />;} // BROKEN
+//export default function App() {return <Link />;} // BROKEN
 const styles = StyleSheet.create({
   container: {
     flex: 1,
