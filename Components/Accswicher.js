@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Svg, Path, Circle } from 'react-native-svg';
 
-export default function IPhone1415Pro11() {
+export default function Accswitcher() {
     return (
-    		<View style={styles.iPhone1415Pro11}>
+    		<View style={styles.Accswitcher}>
       			<View style={styles.rectangle7}/>
       			<Text style={styles.addAccount}>
         				{`Add Account`}
@@ -45,7 +45,7 @@ export default function IPhone1415Pro11() {
 }
 
 const styles = StyleSheet.create({
-  	iPhone1415Pro11: {
+  	Accswitcher: {
     flexShrink: 0,
     height: 566,
     width: 297,

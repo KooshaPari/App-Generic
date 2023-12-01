@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Svg, Path } from 'react-native-svg';
 
-export default function IPhone1415Pro4() {
+export default function Loadingscreen() {
     return (
-    		<View style={styles.iPhone1415Pro4}>
+    		<View style={styles.Loadingscreen}>
       			<View style={styles.rectangle7}/>
       			{/* component basicCircle */}
       			<View style={styles.basicCircle}>
@@ -63,7 +63,7 @@ export default function IPhone1415Pro4() {
 }
 
 const styles = StyleSheet.create({
-  	iPhone1415Pro4: {
+  	Loadingscreen: {
     flexShrink: 0,
     height: 566,
     width: 299,

@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Svg, Path } from 'react-native-svg';
 
-export default function IPhone1415Pro9() {
+export default function Changeinfo() {
     return (
-    		<View style={styles.iPhone1415Pro9}>
+    		<View style={styles.Changeinfo}>
       			<View style={styles.rectangle7}/>
       			<Text style={styles.changeNumber}>
         				{`Change Number`}
@@ -62,7 +62,7 @@ export default function IPhone1415Pro9() {
 }
 
 const styles = StyleSheet.create({
-  	iPhone1415Pro9: {
+  	Changeinfo: {
     flexShrink: 0,
     height: 566,
     width: 297,

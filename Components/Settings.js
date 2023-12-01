@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Svg, Path, Circle } from 'react-native-svg';
 
-export default function IPhone1415Pro7() {
+export default function Settings() {
     return (
-    		<View style={styles.iPhone1415Pro7}>
+    		<View style={styles.Settings}>
       			<View style={styles.rectangle7}/>
       			<Text style={styles.settings}>
         				{`Settings`}
@@ -103,7 +103,7 @@ export default function IPhone1415Pro7() {
 }
 
 const styles = StyleSheet.create({
-  	iPhone1415Pro7: {
+  	Settings: {
     flexShrink: 0,
     height: 566,
     width: 297,

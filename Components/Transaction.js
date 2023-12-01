@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Svg, Path } from 'react-native-svg';
 
-export default function IPhone1415Pro17() {
+export default function Transaction() {
     return (
-    		<View style={styles.iPhone1415Pro17}>
+    		<View style={styles.Transaction}>
       			<View style={styles.rectangle7}/>
       			<View style={styles.rectangle8}/>
       			{/* Vigma RN:: can be replaced with <ChattingCommenttext  /> */}
@@ -113,7 +113,7 @@ export default function IPhone1415Pro17() {
 }
 
 const styles = StyleSheet.create({
-  	iPhone1415Pro17: {
+  	Transaction: {
     flexShrink: 0,
     height: 566,
     width: 299,

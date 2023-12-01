@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Svg, Circle, Line, Path } from 'react-native-svg';
 
-export default function IPhone1415Pro8() {
+export default function Profile() {
     return (
-    		<View style={styles.iPhone1415Pro8}>
+    		<View style={styles.Profile}>
       			<View style={styles.rectangle7}/>
 <Svg style={styles.ellipse3} width="30" height="30" viewBox="0 0 30 30" fill="none" >
 <Circle cx="15" cy="15" r="15" fill="#D9D9D9"/>
@@ -103,7 +103,7 @@ export default function IPhone1415Pro8() {
 }
 
 const styles = StyleSheet.create({
-  	iPhone1415Pro8: {
+  	Profile: {
     flexShrink: 0,
     height: 566,
     width: 297,

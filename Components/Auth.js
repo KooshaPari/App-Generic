@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Svg, Path } from 'react-native-svg';
 
-export default function IPhone1415Pro6() {
+export default function Auth() {
     return (
-    		<View style={styles.iPhone1415Pro6}>
+    		<View style={styles.Auth}>
       			<View style={styles.rectangle7}/>
       			{/* component musicPlayerstop */}
       			<View style={styles.musicPlayerstop}>
@@ -34,7 +34,7 @@ export default function IPhone1415Pro6() {
 }
 
 const styles = StyleSheet.create({
-  	iPhone1415Pro6: {
+  	Auth: {
     flexShrink: 0,
     height: 566,
     width: 297,

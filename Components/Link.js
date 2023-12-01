@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Svg, Path } from 'react-native-svg';
 
-export default function IPhone1415Pro10() {
+export default function Link() {
     return (
-    		<View style={styles.iPhone1415Pro10}>
+    		<View style={styles.Link}>
       			<View style={styles.rectangle7}/>
       			<View style={styles.rectangle15}/>
       			<Text style={styles.linkaDevice}>
@@ -57,7 +57,7 @@ export default function IPhone1415Pro10() {
 }
 
 const styles = StyleSheet.create({
-  	iPhone1415Pro10: {
+  	Link: {
     flexShrink: 0,
     height: 566,
     width: 297,
