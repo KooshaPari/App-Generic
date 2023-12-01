@@ -1,16 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Splash from './Components/Splash';
-import Accswitcher from './Components/Accswitcher';
-import Auth from './Components/Auth';
-import Home from './Components/Home';
-import Changeinfo from './Components/Changeinfo';
-import Link from './Components/Link';
-import Loadingscreen from './Components/Loadingscreen';
-import Login from './Components/Login';
-import Profile from './Components/Profile';
-import Settings from './Components/Settings';
-import Transaction from './Components/Transaction';
+import Splash from './Components/Splash.js';
+import Accswitcher from './Components/Accswitcher.js';
+import Auth from './Components/Auth.js';
+import Home from './Components/Home.js';
+import Changeinfo from './Components/Changeinfo.js';
+import Link from './Components/Link.js';
+import Loadingscreen from './Components/Loadingscreen.js';
+import Login from './Components/Login.js';
+import Profile from './Components/Profile.js';
+import Settings from './Components/Settings.js';
+import Transaction from './Components/Transaction.js';
 /*export default function app() {
   return (
     <View style={styles.container}>
@@ -21,7 +21,7 @@ import Transaction from './Components/Transaction';
 }*/
 
 export default function App() {
-  return <Accswitcher />;
+  return <Splash />;
 }
 const styles = StyleSheet.create({
   container: {

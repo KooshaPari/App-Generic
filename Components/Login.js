@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import {  } from 'react-native-svg';
+//import {  } from 'react-native-svg';
 
 export default function Login() {
     return (
