@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-//import { Svg, Path } from 'react-native-svg';
+import { Svg, Path } from 'react-native-svg';
 
 export default function Auth() {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-//import { Svg, Circle, Line, Path } from 'react-native-svg';
+import { Svg, Circle, Line, Path } from 'react-native-svg';
 
 export default function Profile() {
     return (

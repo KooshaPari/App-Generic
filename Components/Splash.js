@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ImageBackground, StyleSheet } from 'react-native';
-
+import { Svg, Path, Circle } from 'react-native-svg';
 export default function splash() {
     return (
     		<View style={styles.splash}>
