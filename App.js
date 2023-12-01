@@ -21,7 +21,7 @@ import Transaction from './Components/Transaction.js';
 }*/
 
 export default function App() {
-  return <Splash />;
+  return <Accswitcher />;
 }
 const styles = StyleSheet.create({
   container: {
