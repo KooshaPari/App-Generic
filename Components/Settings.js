@@ -5,7 +5,6 @@ import { Svg, Path, Circle } from 'react-native-svg';
 export default function Settings() {
     return (
     		<View style={styles.Settings}>
-      			<View style={styles.rectangle7}/>
       			<Text style={styles.settings}>
         				{`Settings`}
       			</Text>
@@ -104,22 +103,15 @@ export default function Settings() {
 
 const styles = StyleSheet.create({
   	Settings: {
+    flex:1,
     flexShrink: 0,
-    height: 566,
-    width: 297,
-    backgroundColor: "rgba(255, 255, 255, 1)",
+    backgroundColor: "rgba(95, 152, 125, 0.6)",
     alignItems: "flex-start",
     rowGap: 0
 },
-  	rectangle7: {
-    position: "absolute",
-    flexShrink: 0,
-    width: 297,
-    height: 566,
-    backgroundColor: "rgba(95, 152, 125, 0.6)"
-},
   	settings: {
     position: "absolute",
+    flex:1,
     flexShrink: 0,
     top: 13,
     left: 21,
@@ -133,6 +125,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0
 },
   	rectangle2: {
+      flex:1,
     position: "absolute",
     flexShrink: 0,
     top: 55,
@@ -144,6 +137,7 @@ const styles = StyleSheet.create({
 },
   	searchIcon: {
     position: "absolute",
+    flex:1,
     flexShrink: 0,
     top: 57,
     right: 261,
@@ -152,6 +146,7 @@ const styles = StyleSheet.create({
     overflow: "visible"
 },
   	search: {
+      flex:1,
     position: "absolute",
     flexShrink: 0,
     top: 60,
@@ -166,6 +161,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0
 },
   	ellipse3: {
+      flex:1,
     position: "absolute",
     flexShrink: 0,
     top: 100,

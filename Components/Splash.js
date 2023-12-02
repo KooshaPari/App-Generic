@@ -1,55 +1,52 @@
 import React from 'react';
-import { View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet,Image } from 'react-native';
 import { Svg, Path, Circle } from 'react-native-svg';
+import getColors from '../Colors.js';
+const isDarkMode = true; // replace with actual dark mode state
+const colors = getColors(isDarkMode);
+
 export default function splash() {
     return (
     		<View style={styles.splash}>
-      			<View style={styles.rectangle7}/>
-      			<Text style={styles.akoma}>
-        				{`Akoma`}
-      			</Text>
+      			
       			<Text style={styles.firstPageloadingpage}>
         				{`First Page (loading page)`}
       			</Text>
-      			<ImageBackground style={styles.rectangle17} source={require('./assets/splashico.png')}/>
-    		</View>
+      			<Image style={styles.splashcontainer} source={require('./assets/splashico.png')}/>
+            <Text style={styles.akoma}>
+        				{`Akoma`}
+      			</Text>
+      	</View>
     )
 }
 
 const styles = StyleSheet.create({
   	splash: {
     flexShrink: 0,
-    height: 2560,
-    width: 1440,
-    backgroundColor: "rgba(255, 255, 255, 1)",
-    alignItems: "flex-start",
+    flex: 1,
+    backgroundColor: Colors.primary,
+    alignItems: "center",
     rowGap: 0
 },
-  	rectangle7: {
-    position: "absolute",
-    flexShrink: 0,
-    width: 2560,
-    height: 1440,
-    backgroundColor: "rgba(95, 152, 125, 0.6)"
-},
   	akoma: {
-    position: "absolute",
+    //position: "absolute",
+    flex: 1,
     flexShrink: 0,
-    top: 320,
-    left: 94,
-    width: 112,
+    top: 30,
+    marginTop: 80,
+    width: 316,
     height: 23,
     textAlign: "center",
-    color: "rgba(0, 0, 0, 1)",
+    color: Colors.Text,
     fontFamily: "Inter",
-    fontSize: 20,
-    fontWeight: "400",
+    fontSize: 64,
+    fontWeight: "600",
     letterSpacing: 0
 },
   	firstPageloadingpage: {
-    position: "absolute",
+    //position: "absolute",
     flexShrink: 0,
-    top: 13,
+    top: 50,
     left: 21,
     width: 263,
     height: 24,
@@ -60,12 +57,18 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     letterSpacing: 0
 },
-  	rectangle17: {
-    position: "absolute",
-    flexShrink: 0,
-    top: 74,
-    left: 39,
-    width: 220,
-    height: 209
+  	splashcontainer: {
+    //position:"relative",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 0.5,
+    marginBottom: 100,
+    flexShrink: 10,
+    borderRadius: 40,
+    top: 150,
+    paddingTop: 100,
+    alignContent: 'center',
+    width: 316,
+    height: 300
 }
 })
