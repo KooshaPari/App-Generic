@@ -3,7 +3,7 @@ import { View, Text, ImageBackground, StyleSheet,Image } from 'react-native';
 import { Svg, Path, Circle } from 'react-native-svg';
 import getColors from '../Colors.js';
 const isDarkMode = true; // replace with actual dark mode state
-const colors = getColors(isDarkMode);
+const Colors = getColors(isDarkMode);
 
 export default function splash() {
     return (
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   	splash: {
     flexShrink: 0,
     flex: 1,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.secondary,
     alignItems: "center",
     rowGap: 0
 },
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     width: 316,
     height: 23,
     textAlign: "center",
-    color: Colors.Text,
+    color: Colors.primaryText,
     fontFamily: "Inter",
     fontSize: 64,
     fontWeight: "600",
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     width: 263,
     height: 24,
     textAlign: "left",
-    color: "rgba(0, 0, 0, 1)",
+    color: Colors.primaryText,
     fontFamily: "Inter",
     fontSize: 20,
     fontWeight: "400",
@@ -69,6 +69,10 @@ const styles = StyleSheet.create({
     paddingTop: 100,
     alignContent: 'center',
     width: 316,
-    height: 300
+    height: 300,
+    shadowRadius: 3.84,
+    shadowColor: '#F00',
+    shadowOpacity: 1,
+    shadowOffset: { width: 30, height: 30 },
 }
 })

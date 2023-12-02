@@ -1,6 +1,6 @@
 const lightColors = {
-    primary: '#1F2022',
-    secondary: '#F6F5F5',
+    primary: '#F6F5F5',
+    secondary: '#353A40',
     accent: '#7EBAB5',
     primaryText: '#0f1012',
     secondaryText: '#353A40',
