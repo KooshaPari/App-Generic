@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ImageBackground, StyleSheet,Image } from 'react-native';
+import { View, Text, StyleSheet,Image } from 'react-native';
 import { Svg, Path, Circle } from 'react-native-svg';
 import getColors from '../Colors.js';
 const isDarkMode = true; // replace with actual dark mode state
@@ -12,7 +12,9 @@ export default function splash() {
       			<Text style={styles.firstPageloadingpage}>
         				{`First Page (loading page)`}
       			</Text>
+            <View style={styles.splashC}>
       			<Image style={styles.splashcontainer} source={require('./assets/splashico.png')}/>
+            </View>
             <Text style={styles.akoma}>
         				{`Akoma`}
       			</Text>
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexShrink: 0,
     top: 30,
-    marginTop: 80,
+    marginTop: 40,
     width: 316,
     height: 23,
     textAlign: "center",
@@ -41,7 +43,12 @@ const styles = StyleSheet.create({
     fontFamily: "Inter",
     fontSize: 64,
     fontWeight: "600",
-    letterSpacing: 0
+    letterSpacing: 0,
+    shadowColor: '#000',
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.5,
+      shadowRadius: 3.84,
+      elevation: 5, // for Android
 },
   	firstPageloadingpage: {
     //position: "absolute",
@@ -62,17 +69,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 0.5,
-    marginBottom: 100,
-    flexShrink: 10,
+    //marginBottom: 100,
+    //flexShrink: 10,
     borderRadius: 40,
     top: 150,
     paddingTop: 100,
     alignContent: 'center',
     width: 316,
     height: 300,
-    shadowRadius: 3.84,
-    shadowColor: '#F00',
-    shadowOpacity: 1,
-    shadowOffset: { width: 30, height: 30 },
-}
+    },
+    splashC: {
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.5,
+      shadowRadius: 3.84,
+      elevation: 5, // for Android
+    }
+
 })
