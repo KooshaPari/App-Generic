@@ -17,6 +17,7 @@ import utilities from './tailwind.json';
 import * as React from 'react';
 import { NavigationContainer} from '@react-navigation/native';
 import Support from './Components/Support.js';
+import Page from './Components/Page.js';
 //import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const isDarkMode = true; // replace with actual dark mode state
 const colors = getColors(isDarkMode);
@@ -36,7 +37,9 @@ const colors = getColors(isDarkMode);
 //export default function App() {return <Loadingscreen />;} // BROKEN
 //export default function App() {return <Login />;}
 //export default function App() {return <Profile />;} // BROKEN
-export default function App() {return(<Settings />)} 
+export default function App() {
+  return <Settings/>;
+}
 //export default function App() {return <Transaction />;} // BROKEN
 //export default function App() {return <Link />;} // BROKEN
 <TailwindProvider utilities={utilities}></TailwindProvider>

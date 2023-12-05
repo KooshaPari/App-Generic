@@ -10,14 +10,17 @@ import Dark from '../assets/dark.svg';
 import BackArrowL from '../assets/chevron-left light.svg';
 import LightL from '../assets/light light.svg';
 import DarkL from '../assets/dark light.svg';
+import Page from './Page.js';
 //import { useNavigation } from '@react-navigation/native';
 //const Colors = getColors(isDarkMode);
 //const isDarkMode = false;
 
 export default function Settings() {
   const [isDarkMode, setTheme] = useState(false);
-  const themeToggleSwitch = () =>
-  setTheme((previousState) => !previousState);
+
+  const themeToggleSwitch = () => {
+    setTheme(previousState => !previousState);
+  };
   const Colors = getColors(isDarkMode);
   const styles = StyleSheet.create({
   	Settings: {
@@ -28,9 +31,9 @@ export default function Settings() {
     rowGap: 0
 },
     appearanceslider: {
-      position: 'absolute',
+      //position: 'absolute',
       flex: 1,
-      alignSelf: 'flex-end',
+      //alignSelf: 'flex-end',
       bottom: '5%',
       flexDirection: 'row',
       justifyContent: 'center',
@@ -51,7 +54,7 @@ export default function Settings() {
     },
     footer: {
       backgroundColor: Colors.secondary,
-      height: "12.5%",
+      height: "10%",
       width: '100%',
       flexDirection:'row',
       //flex: 1,
@@ -63,16 +66,20 @@ export default function Settings() {
     backgroundColor: Colors.accent,
     width: '100%',
     height: "25%",
+    flex:0.4,
     flexDirection: 'row',
     alignItems: "center",
     justifyContent: "center",
     marginBottom: '5%',
   },
     buttonList:{
+    top: '2.5%',
+    bottom: '2.5%',
     width: '100%',
     height:'100%',
-    flex:1,
+    flex:0.99,
     flexShrink:1,
+    elevation: 5,
   },
   buttonContainer: {
     position: 'relative',
@@ -90,6 +97,7 @@ export default function Settings() {
    shadowColor: Colors.secondary,
    shadowOffset: { width: 0, height: 2 },
    shadowRadius: 2,
+   elevation: 115,
    shadowOpacity: 0.7, 
     
 },
@@ -114,7 +122,7 @@ export default function Settings() {
     color: Colors.primary,
     fontFamily: "Inter",
     fontSize: 48,
-    elevation: 5,
+    elevation: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
@@ -196,70 +204,64 @@ export default function Settings() {
 },
 
 })
+  const headerContent = (
+    <View style={styles.appearanceslider}>
+      <Light width={25} height={25} right={'30%'} />
+      <Switch 
+        trackColor={{ false: Colors.primary, true: Colors.secondary }}
+        thumbColor={isDarkMode ? Colors.accent : Colors.primary}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={themeToggleSwitch} 
+        value={isDarkMode}
+      />
+      <Dark width={22.5} height={22.5} left={'30%'} />
+    </View>
+  ); 
+  const bodyContent = (
+    <View style={styles.buttonList}>
+    <TouchableOpacity style={styles.buttonContainer} onPress={() =>console.print("test")}>
+      <Text style={styles.menuText}>
+          {`Linked Devices`}
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
+      <Text style={styles.menuText}>
+          {`Account`}
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
+      <Text style={styles.menuText}>
+          {`Privacy`}
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
+      <Text style={styles.menuText}>
+          {`Notifications`}
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
+      <Text style={styles.menuText}>
+          {`Downloads`}
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
+      <Text style={styles.menuText}>
+          {`Help`}
+      </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
+      <Text style={styles.menuText}>
+          {`Tell A Friend`}
+      </Text>
+      </TouchableOpacity>
+    </View>
+
+  );
     return (
-    		<View style={styles.Settings}>
-        <View style={styles.header}>
-        <TouchableOpacity style={styles.bContainer} onPress={() =>console.print("test")}>
-              {isDarkMode ? <BackArrow width={30} height={30}></BackArrow> : <BackArrowL width={30} height={30}/>}
-              </TouchableOpacity>
-        <Text style={styles.settings}>
-        				{`Settings`}
-      			</Text>
-            <View style={styles.appearanceslider}>
-            <Light width={25} height={25} right={'30%'} />
-            <Switch 
-            trackColor={{ false: Colors.primary, true: Colors.secondary }}
-            thumbColor={isDarkMode ? Colors.accent : Colors.primary}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={themeToggleSwitch} 
-            value={isDarkMode}/>
-            <Dark width={22.5} height={22.5} left={'30%'} />
-            </View>
-        </View>
-      			
-        <View style={styles.container}>
-</View>
-            <View style={styles.buttonList}>
-            <TouchableOpacity style={styles.buttonContainer} onPress={() =>console.print("test")}>
-              <Text style={styles.menuText}>
-                  {`Linked Devices`}
-              </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-              <Text style={styles.menuText}>
-                  {`Account`}
-              </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-              <Text style={styles.menuText}>
-                  {`Privacy`}
-              </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-              <Text style={styles.menuText}>
-                  {`Notifications`}
-              </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-              <Text style={styles.menuText}>
-                  {`Downloads`}
-              </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-              <Text style={styles.menuText}>
-                  {`Help`}
-              </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-              <Text style={styles.menuText}>
-                  {`Tell A Friend`}
-              </Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.footer}> 
-            <MenuBar />
-            </View>
-      		</View>
+       
+    		<Page h_TXT='Settings' headerContent={headerContent} bodyContent={bodyContent} isDarkMode={isDarkMode}>
+            
+      		</Page>
     )
 }
 //const navigation = useNavigation();

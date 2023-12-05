@@ -8,49 +8,14 @@ import BackArrow from '../assets/chevron-left.svg';
 import Light from '../assets/light.svg';
 import Dark from '../assets/dark.svg';
 import BackArrowL from '../assets/chevron-left light.svg';
+import Page from './Page.js'
 
 export default function Support() {
     const isDarkMode = true; // replace with actual dark mode state
     const Colors = getColors(isDarkMode);
-    const styles = StyleSheet.create({
-        support: {
-            backgroundColor: Colors.primary,
-            flex: 1,
-            height: '100%',
-            width: '100%',
-        },
-        header: {
-            flex: 0.2,
-            height: '30%',
-            width: '100%',
-            backgroundColor: Colors.accent,
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-        headerTXT: {
-            fontSize: 48,
-            fontFamily: 'Inter',
-            color: Colors.primary,
-            fontWeight: '600',
-        },
-        body: {
-            flex: 0.65,
-        },
-        footer: {
-            flex: 0.15,
 
-        },
-    })
     return (
-    <View style={styles.support}>
-            <View style={styles.header}>
-            <Text style={styles.headerTXT}>Support</Text>
-            </View>
-            <View style={styles.body}>
-            </View>
-            <View style={styles.footer}>
-            <MenuBar />
-            </View>
-        </View>
+        <Page h_TXT="Support">
+        </Page>
         )
 }
