@@ -3,7 +3,7 @@ const lightColors = {
     secondary: '#353A40',
     accent: '#7EBAB5',
     primaryText: '#0f1012',
-    secondaryText: '#353A40',
+    secondaryText: '#7ebab5',
 
 };
 

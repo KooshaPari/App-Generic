@@ -6,6 +6,9 @@ import tailwind from 'tailwind-rn';
 import Home from '../assets/home.svg';
 import Settings from '../assets/sun.svg';
 import User from '../assets/user.svg';
+import HomeL from '../assets/home light.svg';
+import SettingsL from '../assets/sun light.svg';
+import UserL from '../assets/user light.svg';
 const isDarkMode = true; // replace with actual dark mode state
 const Colors = getColors(isDarkMode);
 
