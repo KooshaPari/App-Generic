@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, Switch, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Platform, Image, Switch, TouchableOpacity } from 'react-native';
 import { useTheme, Appbar, BottomNavigation, Text, ThemeProvider } from 'react-native-paper';
 
 const HomeRoute = () => null;
@@ -35,8 +35,7 @@ function Page({ headerContent, bodyContent, ...props})  {
       backgroundColor: theme.colors.primary,
     },
     header: {
-      //flex: 1,
-      backgroundColor: '#f0f',
+      backgroundColor: theme.colors.background,
       width: '100%',
       height: '13%',
     },
@@ -44,7 +43,7 @@ function Page({ headerContent, bodyContent, ...props})  {
       flex:1,
       backgroundColor: theme.colors.background,
       width: '100%',
-      height: '65%',
+      height: '77%',
     },
     footer: {
      //flex: 1,

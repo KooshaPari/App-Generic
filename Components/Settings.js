@@ -1,17 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, View, Text, Image, Switch, TouchableOpacity } from 'react-native';
-import { Avatar, Button, Card, Searchbar } from 'react-native-paper';
+import { StyleSheet, View, Text, Image, Switch, TouchableOpacity, ScrollView } from 'react-native';
+import { Avatar, Button, Card, useTheme, Searchbar } from 'react-native-paper';
 import Page from './Page.js';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
 export default function Settings() {
   const [searchQuery, setSearchQuery] = React.useState('');
 
   const onChangeSearch = query => setSearchQuery(query);
-
+  const theme = useTheme();
   const styles = StyleSheet.create({
     buttonList:{
-    top: '5%',
-    bottom: '5%',
     width: '100%',
     height:'100%',
     //flex:0.99,
@@ -22,7 +20,7 @@ export default function Settings() {
   buttonContainer: {
    rippleWidth: '100%',
    width: '80%',
-   height: '10%',
+   height: '20%',
    alignSelf: 'center',
    alignItems: 'flex-start',
    justifyContent: 'center',
@@ -34,63 +32,10 @@ export default function Settings() {
     flexShrink: 0,
     flex: 1,
     flexDirection: "column",
-    left: '20%',
+    left: 20,
     //color: Colors.secondaryText,
-    fontFamily: "Inter",
+    //fontFamily: "Inter",
     fontSize: 18,
-    fontWeight: "400",
-    letterSpacing: 0
-},
-  	searchIcon: {
-    
-    flex:1,
-    flexShrink: 0,
-    top: 57,
-    right: 261,
-    bottom: 489,
-    left: 16,
-    overflow: "visible"
-},
-  	search: {
-      flex:1,
-    
-    flexShrink: 0,
-    top: 60,
-    left: 45,
-    width: 37,
-    height: 13,
-    textAlign: "left",
-   // color: Colors.primaryText,
-    fontFamily: "Inter",
-    fontSize: 11,
-    fontWeight: "400",
-    letterSpacing: 0
-},
-  	businessicon: {
-    
-    flexShrink: 0,
-    top: 100,
-    left: 53,
-    width: 95,
-    height: 21,
-    textAlign: "left",
-    //color:  Colors.primaryText,
-    fontFamily: "Inter",
-    fontSize: 12,
-    fontWeight: "400",
-    letterSpacing: 0
-},
-  	nameofbusinessOwner: {
-    
-    flexShrink: 0,
-    top: 121,
-    left: 53,
-    width: 154,
-    height: 21,
-    textAlign: "left",
-    //color: Colors.secondaryText,
-    fontFamily: "Inter",
-    fontSize: 12,
     fontWeight: "400",
     letterSpacing: 0
 },
@@ -98,8 +43,8 @@ footertxt: {
   position: 'relative',
   flex: 1,
   flexDirection: 'column',
-  fontFamily: 'Helvetica',
-  fontSize: '12',
+  //fontFamily: 'Helvetica',
+  fontSize: 12,
   alignSelf: 'center',
   justifyContent: 'flex-end',
 },
@@ -110,34 +55,51 @@ footertxt: {
      alignItems: 'center', 
      justifyContent: 'center', 
      top: '5%', 
-     bottom: '5%',
-     alignSelf: 'flex-start'
+     paddingBottom: '10%',
+     alignSelf: 'flex-start',
+     elevation: 15,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 3.84,
+    right:5,
+    shadowOpacity: 1,
+    //backgroundColor: theme.colors.background,
     },
   bizname: {
-    fontFamily: 'Helvetica',
+    color: theme.colors.primary,
+    //fontFamily: 'Helvetica',
     fontSize: 18,
     fontWeight: 'bold',
-    left: '7.5%',
-    right: '-7.5%',
+    left: 5,
+    right: -5,
+    
   },
   pfp: {
-    left: '-7.5%',
+    left: -5,
     elevation: 5,
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 0 },
     shadowRadius: 3.84,
-    right:'7.5%',
+    right:5,
     shadowOpacity: 0.5,
   },
+  scrollView: {
+    flex: 1,
+    //height: '100%',
+    width: '100%',
+    paddingTop: '5%',
+    paddingBottom: '5%',
+  }
 })
   const labels = ['Starred Contacts', 'Linked Devices', 'Account', 'Privacy', 'Notifications', 'Downloads', 'Help', 'Tell A Friend'];  
   const icons = ['star', 'link', 'account', 'shield-lock', 'bell', 'download', 'help-circle', 'share-variant'];
   const bodyContent = (
-    <View>
+    <SafeAreaView style={{flex:1, height:'100%'}}>
     <View style= {styles.infocontainer}>
     <Avatar.Icon style={styles.pfp} size={64} icon="folder" />
     <Text style={styles.bizname}>NAME OF BUSINESS</Text>
     </View>
+    <ScrollView style={styles.scrollView}>
       <View style={styles.buttonList}>
         {labels.map((label, index) => (
         <Button 
@@ -151,7 +113,8 @@ footertxt: {
       ))}
       <Text style={styles.footertxt}>Version 1.0.0</Text>
     </View>
-  </View>
+    </ScrollView>
+  </SafeAreaView>
   );
     return (
        
