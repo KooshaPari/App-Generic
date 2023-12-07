@@ -35,7 +35,7 @@ function Page({ headerContent, bodyContent, ...props})  {
       backgroundColor: theme.colors.primary,
     },
     header: {
-      backgroundColor: theme.colors.background,
+      backgroundColor: '#00F',
       width: '100%',
       height: '13%',
     },
@@ -43,7 +43,7 @@ function Page({ headerContent, bodyContent, ...props})  {
       flex:1,
       backgroundColor: theme.colors.background,
       width: '100%',
-      height: '77%',
+     // height: '77%',
     },
     footer: {
      //flex: 1,
@@ -63,7 +63,7 @@ function Page({ headerContent, bodyContent, ...props})  {
   return (
     <View style={styles.page}>
       <View style={styles.header}>
-        <Appbar.Header>
+        <Appbar.Header style={{height: '100%'}}>
           <Appbar.BackAction onPress={() => { } } />
           <Appbar.Content title={props.TITLE} />
           <Appbar.Action icon="magnify" onPress={() => setIsSearchVisible(true)} />

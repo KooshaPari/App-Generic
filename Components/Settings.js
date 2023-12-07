@@ -11,7 +11,7 @@ export default function Settings() {
   const styles = StyleSheet.create({
     buttonList:{
     width: '100%',
-    height:'100%',
+    //height:'100%',
     //flex:0.99,
     flexShrink:1,
     elevation: 5,
@@ -20,7 +20,7 @@ export default function Settings() {
   buttonContainer: {
    rippleWidth: '100%',
    width: '80%',
-   height: '20%',
+   height: 100,
    alignSelf: 'center',
    alignItems: 'flex-start',
    justifyContent: 'center',
@@ -51,10 +51,11 @@ footertxt: {
   infocontainer: {
     flexDirection: 'row',
      width: '100%',
-     height: '10%',
+     height: '12.5%',
      alignItems: 'center', 
      justifyContent: 'center', 
      top: '5%', 
+     marginBottom: '5%',
      paddingBottom: '10%',
      alignSelf: 'flex-start',
      elevation: 15,
@@ -67,6 +68,7 @@ footertxt: {
     },
   bizname: {
     color: theme.colors.primary,
+    //backgroundColor: '#F00',
     //fontFamily: 'Helvetica',
     fontSize: 18,
     fontWeight: 'bold',
@@ -84,23 +86,24 @@ footertxt: {
     shadowOpacity: 0.5,
   },
   scrollView: {
-    flex: 1,
+    //flex: 1,
     //height: '100%',
     width: '100%',
     paddingTop: '5%',
-    paddingBottom: '5%',
+    //paddingBottom: '5%',
   }
 })
   const labels = ['Starred Contacts', 'Linked Devices', 'Account', 'Privacy', 'Notifications', 'Downloads', 'Help', 'Tell A Friend'];  
   const icons = ['star', 'link', 'account', 'shield-lock', 'bell', 'download', 'help-circle', 'share-variant'];
   const bodyContent = (
-    <SafeAreaView style={{flex:1, height:'100%'}}>
+    <View>
+    <ScrollView style={styles.scrollView}>
     <View style= {styles.infocontainer}>
     <Avatar.Icon style={styles.pfp} size={64} icon="folder" />
     <Text style={styles.bizname}>NAME OF BUSINESS</Text>
     </View>
-    <ScrollView style={styles.scrollView}>
-      <View style={styles.buttonList}>
+    
+      <View style={styles.buttonList} >
         {labels.map((label, index) => (
         <Button 
           key={index}
@@ -113,8 +116,9 @@ footertxt: {
       ))}
       <Text style={styles.footertxt}>Version 1.0.0</Text>
     </View>
+    <View style={{height:200, width:'100%',}} />
     </ScrollView>
-  </SafeAreaView>
+  </View>
   );
     return (
        
