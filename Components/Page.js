@@ -1,85 +1,86 @@
-import React, {useState, useEffect} from 'react';
-import { StyleSheet, View, Text, Image, Switch, TouchableOpacity } from 'react-native';
-import { Svg, Path, Circle } from 'react-native-svg';
-import getColors from '../Colors.js';
-import tailwind from 'tailwind-rn';
-import MenuBar from './MenuBar.js';
-import BackArrow from '../assets/chevron-left.svg';
-import Light from '../assets/light.svg';
-import Dark from '../assets/dark.svg';
+import React, { useState } from 'react';
+import { StyleSheet, View, Image, Switch, TouchableOpacity } from 'react-native';
+import { useTheme, Appbar, BottomNavigation, Text, ThemeProvider } from 'react-native-paper';
 
-export default function Page({ headerContent, bodyContent, ...props}) {
-    const isDarkMode = true; // replace with actual dark mode state
-    const Colors = getColors(isDarkMode);
-    const styles = StyleSheet.create({
-        page: {
-            backgroundColor: Colors.primary,
-            flex: 1,
-            height: '100%',
-            width: '100%',
-        },
-        header: {
-            flex: 0.3,
-            height: '30%',
-            width: '100%',
-            backgroundColor: Colors.accent,
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-        headerTXT: {
-            fontSize: 48,
-            fontFamily: 'Inter',
-            color: Colors.primary,
-            fontWeight: '600',
-        },
-        body: {
-            flex: 0.75,
-        },
-        footer: {
-            backgroundColor: Colors.secondary,
-            height: "10%",
-            width: '100%',
-            flexDirection:'row',
-            //flex: 1,
-            //flexShrink: 1,
-            marginTop: '5%',
-            justifyContent: "center",
-            flex:0.1
-          },
-          bContainer: {
-            width: 100,
-            height: 100,
-            left: '-5%',
-            top: '5%',
-            position: 'absolute',
-            alignSelf: 'flex-start',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 80,
-            
-          },
-          hContainer: {
-            position: 'absolute',
-            bottom: '5%',
-            alignSelf: 'center',
-          },
-    })
-    return (
+const HomeRoute = () => null;
+
+const AccountRoute = () => null;
+
+const SettingsRoute = () => null;
+
+const NotificationsRoute = () => null;
+
+const backRoute = () => null;
+
+
+function Page({ headerContent, bodyContent, ...props})  {
+  const theme = useTheme();
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'home', title: 'Home', focusedIcon: 'home', unfocusedIcon: 'home-outline'},
+    { key: 'account', title: 'Account', focusedIcon: 'account', unfocusedIcon: 'account-outline' },
+    { key: 'settings', title: 'Settings', focusedIcon: 'cog' , unfocusedIcon: 'cog-outline'},
+    { key: 'notifications', title: 'Notifications', focusedIcon: 'bell', unfocusedIcon: 'bell-outline' },
+  ]);
+  const navBar= BottomNavigation.SceneMap({
+    home: HomeRoute,
+    account: AccountRoute,
+    settings: SettingsRoute,
+    notifications: NotificationsRoute,
+  });
+  const styles = StyleSheet.create({
+    page: {
+      width:'100%',
+      height: '100%',
+      backgroundColor: theme.colors.primary,
+    },
+    header: {
+      //flex: 1,
+      backgroundColor: '#f0f',
+      width: '100%',
+      height: '13%',
+    },
+    body: {
+      flex:1,
+      backgroundColor: theme.colors.background,
+      width: '100%',
+      height: '65%',
+    },
+    footer: {
+     //flex: 1,
+      backgroundColor: '#ff0',
+      alignSelf: 'flex-end',
+      width: '100%',
+      height: '10%',
+    },
+    search: {
+      width: '100%',
+      height: '100%',
+    },
+  });
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  
+
+  return (
     <View style={styles.page}>
-            <View style={styles.header}>
-            <TouchableOpacity style={styles.bContainer} onPress={() =>console.print("test")}>
-              {isDarkMode ? <BackArrow width={30} height={30}></BackArrow> : <BackArrowL width={30} height={30}/>}
-              </TouchableOpacity>
-            <Text style={styles.headerTXT}>{props.h_TXT}</Text>
-            <View style ={styles.hContainer}>{headerContent}</View>
-            </View>
-            <View style={styles.body}>
-            {bodyContent}
-            </View>
-            <View style={styles.footer}>
-            <MenuBar />
-            </View>
-        </View>
-        )
-}
+      <View style={styles.header}>
+        <Appbar.Header>
+          <Appbar.BackAction onPress={() => { } } />
+          <Appbar.Content title={props.TITLE} />
+          <Appbar.Action icon="magnify" onPress={() => setIsSearchVisible(true)} />
+        </Appbar.Header></View>
+      <View style={styles.body}>
+        {bodyContent}
+      </View>
+      <View style={styles.footer}>
+        <BottomNavigation
+            navigationState={{ index, routes }}
+            onIndexChange={setIndex}
+            renderScene={navBar} />
+      </View>
+     </View>
+    
+  );
+};
+
+export default Page;

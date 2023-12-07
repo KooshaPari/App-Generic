@@ -1,105 +1,33 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, View, Text, Image, Switch, TouchableOpacity } from 'react-native';
-import { Svg, Path, Circle } from 'react-native-svg';
-import getColors from '../Colors.js';
-import tailwind from 'tailwind-rn';
-import MenuBar from './MenuBar.js';
-import BackArrow from '../assets/chevron-left.svg';
-import Light from '../assets/light.svg';
-import Dark from '../assets/dark.svg';
-import BackArrowL from '../assets/chevron-left light.svg';
-import LightL from '../assets/light light.svg';
-import DarkL from '../assets/dark light.svg';
+import { Avatar, Button, Card, Searchbar } from 'react-native-paper';
 import Page from './Page.js';
-//import { useNavigation } from '@react-navigation/native';
-//const Colors = getColors(isDarkMode);
-//const isDarkMode = false;
 
 export default function Settings() {
-  const [isDarkMode, setTheme] = useState(false);
+  const [searchQuery, setSearchQuery] = React.useState('');
 
-  const themeToggleSwitch = () => {
-    setTheme(previousState => !previousState);
-  };
-  const Colors = getColors(isDarkMode);
+  const onChangeSearch = query => setSearchQuery(query);
+
   const styles = StyleSheet.create({
-  	Settings: {
-    flex:1,
-    flexShrink: 0,
-    backgroundColor: Colors.primary,
-    alignItems: "flex-start",
-    rowGap: 0
-},
-    appearanceslider: {
-      //position: 'absolute',
-      flex: 1,
-      //alignSelf: 'flex-end',
-      bottom: '5%',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    bContainer: {
-      width: 100,
-      height: 100,
-      left: '-5%',
-      top: '5%',
-      position: 'absolute',
-      alignSelf: 'flex-start',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 80,
-      
-    },
-    footer: {
-      backgroundColor: Colors.secondary,
-      height: "10%",
-      width: '100%',
-      flexDirection:'row',
-      //flex: 1,
-      //flexShrink: 1,
-      marginTop: '5%',
-      justifyContent: "center",
-    },
-    header: {
-    backgroundColor: Colors.accent,
-    width: '100%',
-    height: "25%",
-    flex:0.4,
-    flexDirection: 'row',
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: '5%',
-  },
     buttonList:{
-    top: '2.5%',
-    bottom: '2.5%',
+    top: '5%',
+    bottom: '5%',
     width: '100%',
     height:'100%',
-    flex:0.99,
+    //flex:0.99,
     flexShrink:1,
     elevation: 5,
+    alignItems: 'center', 
   },
   buttonContainer: {
-    position: 'relative',
-    flexShrink: 1,
-    //flex: 1,
-    flexDirection: "row",
-    borderRadius: 20,
-    marginTop: 5,
-    marginBottom: 5,
-    alignSelf: "center",
-    width: "90%",
-    height: "20%",
-    backgroundColor: Colors.secondary,
-   alignItems: "center",
-   shadowColor: Colors.secondary,
-   shadowOffset: { width: 0, height: 2 },
-   shadowRadius: 2,
-   elevation: 115,
-   shadowOpacity: 0.7, 
-    
+   rippleWidth: '100%',
+   width: '80%',
+   height: '10%',
+   alignSelf: 'center',
+   alignItems: 'flex-start',
+   justifyContent: 'center',
+   marginTop: '1.25%',
+   marginBottom: '1.25%',
 },
   	menuText: {
     position: 'relative',
@@ -107,37 +35,11 @@ export default function Settings() {
     flex: 1,
     flexDirection: "column",
     left: '20%',
-    color: Colors.secondaryText,
+    //color: Colors.secondaryText,
     fontFamily: "Inter",
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "400",
     letterSpacing: 0
-},
-  	settings: {
-    //flex:1,
-    flexShrink: 0,
-    //top: 75,
-    flexDirection: "column",
-    textAlign: "center",
-    color: Colors.primary,
-    fontFamily: "Inter",
-    fontSize: 48,
-    elevation: 15,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    fontWeight: "600",
-    letterSpacing: 0
-},
-  	rectangle2: {
-    flex:1,
-    flexShrink: 0,
-    top: 55,
-    left: 8,
-    width: 140,
-    height: 25,
-    backgroundColor: Colors.secondary,
-    borderRadius: 5
 },
   	searchIcon: {
     
@@ -158,21 +60,11 @@ export default function Settings() {
     width: 37,
     height: 13,
     textAlign: "left",
-    color: Colors.primaryText,
+   // color: Colors.primaryText,
     fontFamily: "Inter",
     fontSize: 11,
     fontWeight: "400",
     letterSpacing: 0
-},
-  	ellipse3: {
-      flex:1,
-    
-    flexShrink: 0,
-    top: 100,
-    left: 11,
-    width: 30,
-    height: 30,
-    overflow: "visible"
 },
   	businessicon: {
     
@@ -182,7 +74,7 @@ export default function Settings() {
     width: 95,
     height: 21,
     textAlign: "left",
-    color:  Colors.primaryText,
+    //color:  Colors.primaryText,
     fontFamily: "Inter",
     fontSize: 12,
     fontWeight: "400",
@@ -196,76 +88,78 @@ export default function Settings() {
     width: 154,
     height: 21,
     textAlign: "left",
-    color: Colors.secondaryText,
+    //color: Colors.secondaryText,
     fontFamily: "Inter",
     fontSize: 12,
     fontWeight: "400",
     letterSpacing: 0
 },
-
+footertxt: {
+  position: 'relative',
+  flex: 1,
+  flexDirection: 'column',
+  fontFamily: 'Helvetica',
+  fontSize: '12',
+  alignSelf: 'center',
+  justifyContent: 'flex-end',
+},
+  infocontainer: {
+    flexDirection: 'row',
+     width: '100%',
+     height: '10%',
+     alignItems: 'center', 
+     justifyContent: 'center', 
+     top: '5%', 
+     bottom: '5%',
+     alignSelf: 'flex-start'
+    },
+  bizname: {
+    fontFamily: 'Helvetica',
+    fontSize: 18,
+    fontWeight: 'bold',
+    left: '7.5%',
+    right: '-7.5%',
+  },
+  pfp: {
+    left: '-7.5%',
+    elevation: 5,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 0 },
+    shadowRadius: 3.84,
+    right:'7.5%',
+    shadowOpacity: 0.5,
+  },
 })
-  const headerContent = (
-    <View style={styles.appearanceslider}>
-      <Light width={25} height={25} right={'30%'} />
-      <Switch 
-        trackColor={{ false: Colors.primary, true: Colors.secondary }}
-        thumbColor={isDarkMode ? Colors.accent : Colors.primary}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={themeToggleSwitch} 
-        value={isDarkMode}
-      />
-      <Dark width={22.5} height={22.5} left={'30%'} />
-    </View>
-  ); 
+  const labels = ['Starred Contacts', 'Linked Devices', 'Account', 'Privacy', 'Notifications', 'Downloads', 'Help', 'Tell A Friend'];  
+  const icons = ['star', 'link', 'account', 'shield-lock', 'bell', 'download', 'help-circle', 'share-variant'];
   const bodyContent = (
-    <View style={styles.buttonList}>
-    <TouchableOpacity style={styles.buttonContainer} onPress={() =>console.print("test")}>
-      <Text style={styles.menuText}>
-          {`Linked Devices`}
-      </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-      <Text style={styles.menuText}>
-          {`Account`}
-      </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-      <Text style={styles.menuText}>
-          {`Privacy`}
-      </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-      <Text style={styles.menuText}>
-          {`Notifications`}
-      </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-      <Text style={styles.menuText}>
-          {`Downloads`}
-      </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-      <Text style={styles.menuText}>
-          {`Help`}
-      </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonContainer} onPress={() => console.print("test")}>
-      <Text style={styles.menuText}>
-          {`Tell A Friend`}
-      </Text>
-      </TouchableOpacity>
+    <View>
+    <View style= {styles.infocontainer}>
+    <Avatar.Icon style={styles.pfp} size={64} icon="folder" />
+    <Text style={styles.bizname}>NAME OF BUSINESS</Text>
     </View>
-
+      <View style={styles.buttonList}>
+        {labels.map((label, index) => (
+        <Button 
+          key={index}
+          icon={icons[index]} 
+          mode="elevated" 
+          style={styles.buttonContainer} 
+          onPress={() => console.log('Pressed')}>
+          <Text style={styles.menuText}>{label}</Text>
+        </Button>
+      ))}
+      <Text style={styles.footertxt}>Version 1.0.0</Text>
+    </View>
+  </View>
   );
     return (
        
-    		<Page h_TXT='Settings' headerContent={headerContent} bodyContent={bodyContent} isDarkMode={isDarkMode}>
+    		<Page TITLE='Settings'  bodyContent={bodyContent}>
             
       		</Page>
     )
 }
-//const navigation = useNavigation();
-
 
 
 
