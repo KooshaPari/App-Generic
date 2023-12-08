@@ -11,8 +11,6 @@ export default function Settings() {
   const styles = StyleSheet.create({
     buttonList:{
     width: '100%',
-    //height:'100%',
-    //flex:0.99,
     flexShrink:1,
     elevation: 5,
     alignItems: 'center', 
@@ -33,8 +31,6 @@ export default function Settings() {
     flex: 1,
     flexDirection: "column",
     left: 20,
-    //color: Colors.secondaryText,
-    //fontFamily: "Inter",
     fontSize: 18,
     fontWeight: "400",
     letterSpacing: 0
@@ -43,7 +39,6 @@ footertxt: {
   position: 'relative',
   flex: 1,
   flexDirection: 'column',
-  //fontFamily: 'Helvetica',
   fontSize: 12,
   alignSelf: 'center',
   justifyContent: 'flex-end',
@@ -64,12 +59,9 @@ footertxt: {
     shadowRadius: 3.84,
     right:5,
     shadowOpacity: 1,
-    //backgroundColor: theme.colors.background,
     },
   bizname: {
     color: theme.colors.primary,
-    //backgroundColor: '#F00',
-    //fontFamily: 'Helvetica',
     fontSize: 18,
     fontWeight: 'bold',
     left: 5,
@@ -86,15 +78,12 @@ footertxt: {
     shadowOpacity: 0.5,
   },
   scrollView: {
-    //flex: 1,
-    //height: '100%',
     width: '100%',
     paddingTop: '5%',
-    //paddingBottom: '5%',
   }
 })
   const labels = ['Starred Contacts', 'Linked Devices', 'Account', 'Privacy', 'Notifications', 'Downloads', 'Help', 'Tell A Friend'];  
-  const icons = ['star', 'link', 'account', 'shield-lock', 'bell', 'download', 'help-circle', 'share-variant'];
+  const icons = ['star', 'cellphone-link', 'account', 'shield-lock', 'bell', 'download', 'help-circle', 'share-variant'];
   const bodyContent = (
     <View>
     <ScrollView style={styles.scrollView}>
@@ -122,7 +111,7 @@ footertxt: {
   );
     return (
        
-    		<Page TITLE='Settings'  bodyContent={bodyContent}>
+    		<Page TITLE='Settings'  bodyContent={bodyContent} useNav={true} useSearch={true}>
             
       		</Page>
     )

@@ -13,7 +13,7 @@ const NotificationsRoute = () => null;
 const backRoute = () => null;
 
 
-function Page({ headerContent, bodyContent, ...props})  {
+function Page({ headerContent, bodyContent, useSearch, useNav, ...props})  {
   const theme = useTheme();
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
@@ -66,17 +66,17 @@ function Page({ headerContent, bodyContent, ...props})  {
         <Appbar.Header style={{height: '100%'}}>
           <Appbar.BackAction onPress={() => { } } />
           <Appbar.Content title={props.TITLE} />
-          <Appbar.Action icon="magnify" onPress={() => setIsSearchVisible(true)} />
+          {useSearch && <Appbar.Action icon="magnify" onPress={() => setIsSearchVisible(true)} />}
         </Appbar.Header></View>
       <View style={styles.body}>
         {bodyContent}
       </View>
-      <View style={styles.footer}>
+      {useNav && <View style={styles.footer}>
         <BottomNavigation
             navigationState={{ index, routes }}
             onIndexChange={setIndex}
             renderScene={navBar} />
-      </View>
+      </View>}
      </View>
     
   );
