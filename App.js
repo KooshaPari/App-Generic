@@ -8,6 +8,7 @@ import Support from './Components/Support.js';
 import Link from './Components/Link.js';
 import Star from './Components/Star.js';
 import Account from './Components/Account.js';
+import Home from './Components/Home.js';
 import Privacy from './Components/Privacy.js';
 import Notifications from './Components/Notifications.js';
 import Downloads from './Components/Downloads.js';
@@ -91,7 +92,7 @@ const HomeStack = () => (
       <Stack.Navigator initialRouteName="Home" screenOptions={{
           header: (props) => <NavBar {...props} />,
         }}>
-        <Stack.Screen name="Home" component={SettingsSC} />
+        <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
 );
