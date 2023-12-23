@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ProjectAkoma",
-    "slug": "ProjectAkoma",
+    "name": "AppGeneric",
+    "slug": "AppGeneric",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
