@@ -52,7 +52,7 @@ export default function Link() {
         <Icon
         source="cellphone-link"
         size={160}/>
-        <Text style={styles.bodyTXT}>Use Akoma on web {'\n'}desktop, and other devices</Text>
+        <Text style={styles.bodyTXT}>Use APP on web {'\n'}desktop, and other devices</Text>
         <View style={styles.listContainer}>
         <ScrollView style={styles.scrollView}>
         <Button 

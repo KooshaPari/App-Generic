@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ProjectAkoma",
-    "slug": "ProjectAkoma",
+    "name": "AppGeneric",
+    "slug": "AppGeneric",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -26,14 +26,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.Akoma.Akoma"
+      "bundleIdentifier": "com.Generic.App"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.Akoma.Akoma"
+      "package": "com.Generic.App"
     },
     "web": {
       "favicon": "./assets/favicon.png"
