@@ -13,6 +13,7 @@ import Privacy from './Components/Privacy.js';
 import Notifications from './Components/Notifications.js';
 import Downloads from './Components/Downloads.js';
 import TellAFriend from './Components/TellAFriend.js';
+import Search from './Components/Search.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator,  } from 'react-native-paper/react-navigation';
@@ -168,15 +169,28 @@ const TabNavigator = ({theme}) => (
       ),
     })}
   />
-  <Tab.Screen 
-    name="SettingsTab" 
-    component={SettingsStack} 
+  <Tab.Screen
+    name="SearchTab"
+    component={Search}
+    options={({route}) =>({
+      tabBarLabel: 'Search',
+      tabBarVisible: true,
+      tabBarIcon: ({ focused }) => (
+        focused ? <MaterialCommunityIcons size={24} color={theme.colors.tertiary}
+        style={{ alignSelf: 'center' }} name="magnify" /> : <MaterialCommunityIcons size={24} color={theme.colors.tertiary}
+        style={{ alignSelf: 'center' }} name="magnify" />
+      ),
+    })}
+  />
+  <Tab.Screen
+    name="SettingsTab"
+    component={SettingsStack}
     options={({route}) =>({
       tabBarLabel: 'Settings',
       tabBarVisible: route.state ? route.state.index > 0 ? false : true : true,
-      tabBarIcon: ({ focused }) => ( 
-        focused ? <MaterialCommunityIcons size={24} color={theme.colors.tertiary} 
-        style={{ alignSelf: 'center' }} name="cog" /> : <MaterialCommunityIcons size={24} color={theme.colors.tertiary} 
+      tabBarIcon: ({ focused }) => (
+        focused ? <MaterialCommunityIcons size={24} color={theme.colors.tertiary}
+        style={{ alignSelf: 'center' }} name="cog" /> : <MaterialCommunityIcons size={24} color={theme.colors.tertiary}
         style={{ alignSelf: 'center' }}  name="cog-outline" />
       ),
     })}
